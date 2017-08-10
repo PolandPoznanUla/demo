@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.service.HomeService;
 import com.example.demo.service.RandomGeneratorService;
+import com.example.demo.service.StringGeneratorService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -31,7 +32,7 @@ public class DemoApplication {
     //    @Primary
 //    @Profile("dev")
     @Bean
-    public RandomGeneratorService randomGeneratorService(Random random) {
+    public RandomGeneratorService service(Random random) {
         RandomGeneratorService randomGeneratorService = new RandomGeneratorService(random);
         randomGeneratorService.setBound(100);
         randomGeneratorService.setShift(10);
@@ -48,6 +49,22 @@ public class DemoApplication {
         return randomGeneratorService;
     }
 
+
+//    @Bean
+//    public RandomGeneratorService lettersGenerator() {
+//        StringGeneratorService stringGeneratorService = new StringGeneratorService();
+//        stringGeneratorService.setLetters(true);
+//        stringGeneratorService.setNumbers(false);
+//        return stringGeneratorService;
+//    }
+//
+//    @Bean
+//    public RandomGeneratorService numberGenerator() {
+//        StringGeneratorService stringGeneratorService = new StringGeneratorService();
+//        stringGeneratorService.setLetters(false);
+//        stringGeneratorService.setNumbers(true);
+//        return stringGeneratorService;
+//    }
 
 }
 
